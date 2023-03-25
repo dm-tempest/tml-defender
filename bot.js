@@ -56,4 +56,6 @@ client.on('message', async (message) => {
     }
 });
 
+//SHOULD ADD A TIMER SO EVERY X THE FLATFILE IS UPDATED WITH THE CURRENT STATE
+
 client.initialize();
