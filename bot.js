@@ -49,6 +49,10 @@ client.on('message', async (message) => {
             userlist.removeUserById(message.from)
         }
 
+    }else{
+        //allow users to build score
+        userlist.getUserById(message.from).addScore(2) // THIS SCORE NEEDS DEFINED
+
     }
 });
 
