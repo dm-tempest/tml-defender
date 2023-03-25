@@ -42,11 +42,10 @@ client.on('message', async (message) => {
     if (messageMod.getSpamScore(message) >= 20) {
         message.delete(true);
         // Remove user score due to the violation
-        userlist.getUserById(message.from).removeScore(10)
+        userlist.getUserById(message.from).removeScore(10) // THIS SCORE NEEDS DEFINED
         // check if violator has below threshhold, if they do then remove violator from the chat
-        if (userlist.getUserById(message.from).score) {
+        if (userlist.getUserById(message.from).score <= -30) { // THIS THRESHOLD NEEDS DEFINED
             // REMOVE PARTICIPANT
-            // & FROM THE LIST( IF MISTAKE THEY GET RE ADDED AND START FRESH )
             userlist.removeUserById(message.from)
         }
 
