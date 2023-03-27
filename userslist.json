@@ -1,8 +1,8 @@
 {
-    "users": [
-        {
-            "id": "Robert",
-            "score": 0
-        }
-    ]
+  "users": [
+    {
+      "id": "Robert",
+      "score": 0
+    }
+  ]
 }

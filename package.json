@@ -3,7 +3,19 @@
   "dependencies": {
     "get-urls": "^11.0.0",
     "qrcode-terminal": "^0.12.0",
-    "sqlite3": "^5.1.6",
     "whatsapp-web.js": "^1.19.5"
+  },
+  "devDependencies": {
+    "ava": "^5.2.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.0",
+    "prettier": "2.8.7"
+  },
+  "scripts": {
+    "prepare": "husky install",
+    "test": "ava"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
   }
 }
