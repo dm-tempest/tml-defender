@@ -23,10 +23,14 @@ client.on('ready', async () => {
 
 client.on('message', async (message) => {
   if (!userlist.userExistById(message.from)) {
-    userlist.addUser(new User(message.from, 0))
+    userlist.addUser(new User(message.from, 0, false))
   }
 
-  if (config.vips.includes(message.from)) {
+  if(userlist.getUserById(message.from).trusted == undefined || userlist.getUserById(message.from).trusted == null  ){
+    userlist.getUserById(message.from).removeTrusted()
+  }
+
+  if (config.vips.includes(message.from)|| userlist.getUserById(message.from).trusted ) {
     return
   }
 
@@ -35,11 +39,16 @@ client.on('message', async (message) => {
     message.delete(true)
 
     // Remove user score due to the violation
-    userlist.getUserById(message.from).removeScore(10) // THIS SCORE NEEDS DEFINED
+    userlist.getUserById(message.from).removeScore(10) 
+    
+    // THIS SCORE NEEDS DEFINED
     // check if violator has below threshhold, if they do then remove violator from the chat
+
     if (userlist.getUserById(message.from).score <= -30) {
+
       // THIS THRESHOLD NEEDS DEFINED
       // REMOVE PARTICIPANT
+      
       userlist.removeUserById(message.from)
     }
 

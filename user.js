@@ -1,8 +1,17 @@
 import fs from 'fs'
 export class User {
-  constructor(id, score) {
+  constructor(id, score, trusted) {
     this.id = id
     this.score = score
+    this.trusted = trusted
+  }
+
+  addTrusted() {
+    this.trusted = true
+  }
+
+  removeTrusted() {
+    this.trusted = false
   }
 
   addScore(x) {
