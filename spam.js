@@ -34,18 +34,39 @@ export default {
       if (url.match(/chat.whatsapp.com/g)) {
         botScore += 5
       }
+
+      if (url.match(/linktr.ee/g)) {
+        botScore += 5
+      }
     }
 
     // Check how many emoji
-    if (this.countEmojis(message) > 8) {
+    if (this.countEmojis(message) >= 7) {
       botScore += 10
     }
 
     // Check for spammy words
-    if (message.match(/(invest|forex|bitcoin|stocks)/gi)) {
+    if (
+      message.match(
+        /(invest|forex|bitcoin|stocks|click the link|dm us on instagram|dm us in instagram)/gi
+      )
+    ) {
       botScore += 10
     }
 
     return botScore
+  },
+
+  isSuspicious: function (message) {
+    // Check for suspicious emoji
+    if (
+      message.match(
+        /(powdery|drugs|mdma|coke|ketamine|keta|molly|candy|cocaine|marijuana|🔌|🍬|🍭)/gi
+      )
+    ) {
+      return true
+    }
+
+    return false
   },
 }

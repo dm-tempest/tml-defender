@@ -1,6 +1,13 @@
 export default {
   modRoom: '',
+  karma: {},
   rooms: [
+  ],
+  blacklist: [
+  ],
+  mutelist: [
+  ],
+  trustlist: [
   ],
   vips: [
   ],
